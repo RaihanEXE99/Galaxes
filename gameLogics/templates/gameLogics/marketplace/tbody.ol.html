@@ -1,0 +1,278 @@
+{% for com in commoditiesList %}
+    <tr class="text-center">
+        <th scope="row" class="{% if com.sp == 'Cheap' %}cheap{% elif com.sp == 'Mid Range' %}mid{% else %}exp{% endif %}">{{com.name}}</th>
+        <td class="{% if com.sp == 'Cheap' %}cheap{% elif com.sp == 'Mid Range' %}mid{% else %}exp{% endif %}">{{com.ship_stock}}</td>
+        <td class="{% if com.sp == 'Cheap' %}cheap{% elif com.sp == 'Mid Range' %}mid{% else %}exp{% endif %}">{{com.stock}}</td>
+        <td class="{% if com.sp == 'Cheap' %}cheap{% elif com.sp == 'Mid Range' %}mid{% else %}exp{% endif %}">{{com.sp}}</td>
+        <td class="{% if com.sp == 'Cheap' %}cheap{% elif com.sp == 'Mid Range' %}mid{% else %}exp{% endif %}">{{com.market_price}}</td>
+        <td class="d-flex justify-content-around">
+            {% if com.available == "Yes" %}
+            <div class="w-50">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-primary" style="width: 80%;" data-bs-toggle="modal" data-bs-target="#exampleModal-buy-{{com.id}}">
+                    Buy
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal-buy-{{com.id}}" tabindex="-1" aria-labelledby="exampleModalLabel-buy-{{com.id}}" aria-hidden="true">
+                    <div class="modal-dialog" style="border: 8px double white;border-radius: 4px;">
+                    <form onSubmit="return valbuy{{com.id}}()" method="POST" action="{% url 'gameLogics:buyItem' %}" class="modal-content" style="background:black;">
+                        {% csrf_token %}
+                        <div class="modal-header">
+                            <h5 class="modal-title text-warning" id="exampleModalLabel-buy-{{com.id}}">Item : {{com.name}} (BUY)</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3>Available : {{com.stock}}</h3>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" onclick="minusbuy{{com.id}}()" class="btn btn-warning">-</button>
+                                <input name="product" value="{{com.name}}" hidden />
+                                <input type="number" id="quantity-buy-{{com.id}}" name="quantity" oninput="quantitybuy{{com.id}}()" class="bg-dark btn text-white" value="0" min="0" max="{{com.stock}}" />
+                                <button type="button" onclick="plusbuy{{com.id}}()" class="btn btn-warning">+</button>
+                            </div>
+                            <h5>
+                                Per Piece: {{com.market_price}}
+                            </h5>
+                            <h5>
+                                <span id="span-buy-{{com.id}}">0</span> X {{com.market_price}}$
+                            </h5>
+                            <h5>
+                                Total Price : <span id="total-buy-{{com.id}}">0</span>$
+                            </h5>
+                        </div>
+                        <div class="modal-footer">
+                            <div class=" d-flex w-100">
+                                <button type="submit" class="btn nbdr btn-primary w-50">Buy</button>
+                                <button type="submit" onclick="makeitmaxbuy{{com.id}}({{com.market_price}})" class="btn nbdr btn-warning w-50">Buy Max</button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+            <script>
+                
+                const valbuy{{com.id}} = () => true
+                const makeitmaxbuy{{com.id}} = (val) =>{
+                    document.querySelector("#quantity-buy-{{com.id}}").value = parseInt({{myGameAccount.credits}}/val)
+                    quantitybuy{{com.id}}()
+                }
+                const plusbuy{{com.id}} = () =>{
+                    console.log(parseInt({{com.market_price}}))
+                    if (
+                        parseInt(document.querySelector("#quantity-buy-{{com.id}}").value)>parseInt({{com.stock}})
+                        )
+                    {   
+                        console.log("ultimate")
+                        document.querySelector("#quantity-buy-{{com.id}}").value = 0
+                        return 0;
+                    } 
+                    document.querySelector("#quantity-buy-{{com.id}}").value = parseInt(document.querySelector("#quantity-buy-{{com.id}}").value)+ 1;
+                    quantitybuy{{com.id}}()
+                }
+                const minusbuy{{com.id}} = () =>{
+                    if (parseInt(document.querySelector("#quantity-buy-{{com.id}}").value) <= 0){
+                        document.querySelector("#quantity-buy-{{com.id}}").value = 0
+                        return 0;
+                    } 
+                    document.querySelector("#quantity-buy-{{com.id}}").value = parseInt(document.querySelector("#quantity-buy-{{com.id}}").value)- 1;
+                    quantitybuy{{com.id}}()
+                }
+                const quantitybuy{{com.id}} = () => {
+                    if (
+                        parseInt(document.querySelector("#quantity-buy-{{com.id}}").value)>parseInt({{com.stock}}) ||  (parseInt(document.querySelector("#quantity-buy-{{com.id}}").value) <= 0)
+                    ){
+                        document.querySelector("#quantity-buy-{{com.id}}").value = 0;
+                        document.querySelector("#span-buy-{{com.id}}").innerHTML = 0;
+                        document.getElementById("total-buy-{{com.id}}").innerHTML = 0;
+                        return 0;
+                    } 
+                    document.querySelector("#span-buy-{{com.id}}").innerHTML = document.querySelector("#quantity-buy-{{com.id}}").value;
+                    value = calculatebuy{{com.id}}(document.querySelector("#quantity-buy-{{com.id}}").value,{{com.market_price}});
+                    document.getElementById("total-buy-{{com.id}}").innerHTML = value;
+                }
+                const calculatebuy{{com.id}} = (q,p) =>{
+                    return parseInt(q)*parseInt(p)
+                }
+                
+            </script>
+
+            <div class="w-50">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-warning" style="width: 80%;" data-bs-toggle="modal" data-bs-target="#exampleModal-sell-{{com.id}}">
+                    Sell
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal-sell-{{com.id}}" tabindex="-1" aria-labelledby="exampleModalLabel-sell-{{com.id}}" aria-hidden="true">
+                    <div class="modal-dialog" style="border: 8px double white;border-radius: 4px;">
+                    <form onSubmit="return valsell{{com.id}}()" method="POST" action="{% url 'gameLogics:sellItem' %}" class="modal-content" style="background:black;">
+                        {% csrf_token %}
+                        <div class="modal-header">
+                            <h5 class="modal-title text-warning" id="exampleModalLabel-sell-{{com.id}}">Item : {{com.name}} (SELL)</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3>Available : {{com.ship_stock}}</h3>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" onclick="minussell{{com.id}}()" class="btn btn-warning">-</button>
+                                <input name="product" value="{{com.name}}" hidden />
+                                <input type="number" id="quantity-sell-{{com.id}}" name="quantity" oninput="quantitysell{{com.id}}()" class="bg-dark btn text-white" value="0" min="0" max="{{com.ship_stock}}" />
+                                <button type="button" onclick="plussell{{com.id}}()" class="btn btn-warning">+</button>
+                            </div>
+                            <h5>
+                                Per Piece: {{com.market_price}}
+                            </h5>
+                            <h5>
+                                <span id="span-sell-{{com.id}}">0</span> X {{com.market_price}}$
+                            </h5>
+                            <h5>
+                                Total Price : <span id="total-sell-{{com.id}}">0</span>$
+                            </h5>
+                        </div>
+                        <div class="modal-footer">
+                            <div class=" d-flex w-100">
+                                <button type="submit" class="btn nbdr btn-primary w-50">Sell</button>
+                                <button type="submit" onclick="makeitmaxsell{{com.id}}({{com.ship_stock}})" class="btn nbdr btn-warning w-50">Sell Max</button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+            <script>
+                const valsell{{com.id}} = () => true
+                const makeitmaxsell{{com.id}} = (val) =>{
+                    document.querySelector("#quantity-sell-{{com.id}}").value = val
+                    quantitysell{{com.id}}()
+                }
+                const plussell{{com.id}} = () =>{
+                    if (
+                        parseInt(document.querySelector("#quantity-sell-{{com.id}}").value)>parseInt({{com.ship_stock}})
+                        )
+                    {   
+                        document.querySelector("#quantity-sell-{{com.id}}").value = 0
+                        return 0;
+                    } 
+                    document.querySelector("#quantity-sell-{{com.id}}").value = parseInt(document.querySelector("#quantity-sell-{{com.id}}").value)+ 1;
+                    quantitysell{{com.id}}()
+                }
+                const minussell{{com.id}} = () =>{
+                    if (parseInt(document.querySelector("#quantity-sell-{{com.id}}").value) <= 0){
+                        document.querySelector("#quantity-sell-{{com.id}}").value = 0
+                        return 0;
+                    } 
+                    document.querySelector("#quantity-sell-{{com.id}}").value = parseInt(document.querySelector("#quantity-sell-{{com.id}}").value)- 1;
+                    quantitysell{{com.id}}()
+                }
+                const quantitysell{{com.id}} = () => {
+                    if (
+                        parseInt(document.querySelector("#quantity-sell-{{com.id}}").value)>parseInt({{com.ship_stock}}) ||  (parseInt(document.querySelector("#quantity-sell-{{com.id}}").value) <= 0)
+                    ){
+                        document.querySelector("#quantity-sell-{{com.id}}").value = 0;
+                        document.querySelector("#span-sell-{{com.id}}").innerHTML = 0;
+                        document.getElementById("total-sell-{{com.id}}").innerHTML = 0;
+                        return 0;
+                    } 
+                    document.querySelector("#span-sell-{{com.id}}").innerHTML = document.querySelector("#quantity-sell-{{com.id}}").value;
+                    value = calculatesell{{com.id}}(document.querySelector("#quantity-sell-{{com.id}}").value,{{com.market_price}});
+                    document.getElementById("total-sell-{{com.id}}").innerHTML = value;
+                }
+                const calculatesell{{com.id}} = (q,p) =>{
+                    return parseInt(q)*parseInt(p)
+                }
+                
+            </script>
+            {% else %}
+            <div class="w-100">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-warning" style="width: 80%;" data-bs-toggle="modal" data-bs-target="#exampleModal-sell-{{com.id}}">
+                    Sell
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal-sell-{{com.id}}" tabindex="-1" aria-labelledby="exampleModalLabel-sell-{{com.id}}" aria-hidden="true">
+                    <div class="modal-dialog" style="border: 8px double white;border-radius: 4px;">
+                    <form onSubmit="return valsell{{com.id}}()" method="POST" action="{% url 'gameLogics:sellItem' %}" class="modal-content" style="background:black;">
+                        {% csrf_token %}
+                        <div class="modal-header">
+                            <h5 class="modal-title text-warning" id="exampleModalLabel-sell-{{com.id}}">Item : {{com.name}} (SELL)</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3>Available : {{com.ship_stock}}</h3>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" onclick="minussell{{com.id}}()" class="btn btn-warning">-</button>
+                                <input name="product" value="{{com.name}}" hidden />
+                                <input type="number" id="quantity-sell-{{com.id}}" name="quantity" oninput="quantitysell{{com.id}}()" class="bg-dark btn text-white" value="0" min="0" max="{{com.ship_stock}}" />
+                                <button type="button" onclick="plussell{{com.id}}()" class="btn btn-warning">+</button>
+                            </div>
+                            <h5>
+                                Per Piece: {{com.market_price}}
+                            </h5>
+                            <h5>
+                                <span id="span-sell-{{com.id}}">0</span> X {{com.market_price}}$
+                            </h5>
+                            <h5>
+                                Total Price : <span id="total-sell-{{com.id}}">0</span>$
+                            </h5>
+                        </div>
+                        <div class="modal-footer">
+                            <div class=" d-flex w-100">
+                                <button type="submit" class="btn nbdr btn-primary w-50">Sell</button>
+                                <button type="submit" onclick="makeitmaxsell{{com.id}}({{com.ship_stock}})" class="btn nbdr btn-warning w-50">Sell Max</button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+            <script>
+                const valsell{{com.id}} = () => true
+                const makeitmaxsell{{com.id}} = (val) =>{
+                    document.querySelector("#quantity-sell-{{com.id}}").value = val
+                    quantitysell{{com.id}}()
+                }
+                const plussell{{com.id}} = () =>{
+                    if (
+                        parseInt(document.querySelector("#quantity-sell-{{com.id}}").value)>parseInt({{com.ship_stock}})
+                        )
+                    {   
+                        document.querySelector("#quantity-sell-{{com.id}}").value = 0
+                        return 0;
+                    } 
+                    document.querySelector("#quantity-sell-{{com.id}}").value = parseInt(document.querySelector("#quantity-sell-{{com.id}}").value)+ 1;
+                    quantitysell{{com.id}}()
+                }
+                const minussell{{com.id}} = () =>{
+                    if (parseInt(document.querySelector("#quantity-sell-{{com.id}}").value) <= 0){
+                        document.querySelector("#quantity-sell-{{com.id}}").value = 0
+                        return 0;
+                    } 
+                    document.querySelector("#quantity-sell-{{com.id}}").value = parseInt(document.querySelector("#quantity-sell-{{com.id}}").value)- 1;
+                    quantitysell{{com.id}}()
+                }
+                const quantitysell{{com.id}} = () => {
+                    if (
+                        parseInt(document.querySelector("#quantity-sell-{{com.id}}").value)>parseInt({{com.ship_stock}}) ||  (parseInt(document.querySelector("#quantity-sell-{{com.id}}").value) <= 0)
+                    ){
+                        document.querySelector("#quantity-sell-{{com.id}}").value = 0;
+                        document.querySelector("#span-sell-{{com.id}}").innerHTML = 0;
+                        document.getElementById("total-sell-{{com.id}}").innerHTML = 0;
+                        return 0;
+                    } 
+                    document.querySelector("#span-sell-{{com.id}}").innerHTML = document.querySelector("#quantity-sell-{{com.id}}").value;
+                    value = calculatesell{{com.id}}(document.querySelector("#quantity-sell-{{com.id}}").value,{{com.market_price}});
+                    document.getElementById("total-sell-{{com.id}}").innerHTML = value;
+                }
+                const calculatesell{{com.id}} = (q,p) =>{
+                    return parseInt(q)*parseInt(p)
+                }
+                
+            </script>
+            {% endif %}
+            
+            
+        </td>
+    </tr>
+{% endfor %}

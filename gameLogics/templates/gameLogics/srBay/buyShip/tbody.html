@@ -1,0 +1,19 @@
+{% load humanize %}
+{% for c in ships %}
+    <tr class="text-center">
+        <td scope="row">{{c.name}}</td>
+        <td>{{c.size}}</td>
+        <td>{{c.type}}</td>
+        <td>{{c.crew}}</td>
+        <td>${{c.value|intcomma}}</td>
+        <td >
+            <form action="{% url 'gameLogics:purchaeShip' %}" method="POST" class="d-flex justify-content-around align-items-stretch">
+                {% csrf_token %}
+                <input hidden name="ship_name" value="{{c.name}}" />
+                <button type="submit" class="btn btn-outline-primary" style="width: 95%;" data-bs-toggle="modal" data-bs-target="#exampleModal-buy-{{com.id}}">
+                    Purchase
+                </button>
+            </form>
+        </td>
+    </tr>
+{% endfor %}

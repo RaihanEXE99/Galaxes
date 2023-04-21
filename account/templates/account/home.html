@@ -1,0 +1,34 @@
+{% extends 'account/base.html' %}
+{% block style %}
+<style>
+    .boxButton{
+        font-size: 5vw;
+        padding: 1rem;
+        color: white;
+        background: #000000;
+        border: .5vw solid #FFFFFF;
+        border-radius: 9px;
+      }
+      .boxButton:hover{
+        border: 8px solid tomato;
+        color: tomato;
+      }
+</style>
+{% endblock %}
+
+{% block body%}
+{% load static %}
+
+<div class="d-flex justify-content-around align-items-center" style="height: 80vh;"> 
+    {% if request.user.is_authenticated  %}
+    <!-- <div>
+      <a style="text-decoration: none;" href="{% url 'gameLogics:mainGameDashboard' %}" class="boxButton">Game Menu</a>
+      <a style="text-decoration: none;" href="{% url 'account:logout_view' %}" class="boxButton">Logout</a>
+    </div> -->
+    {% else %}
+    <a style="text-decoration: none;" href="{% url 'account:signIn_view' %}" class="boxButton">Sign In</a>
+    <a style="text-decoration: none;" href="{% url 'account:registration_view' %}" class="boxButton ">Register</a>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'account/baseWithoutMove.html' %}
+{% block style %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .nbdr{
+        border-radius: 0px;
+    }
+    .bsw-2{
+        border: 2px solid white;
+    }
+    .fgrid{
+        display:grid;
+        grid-template-columns: repeat(2, auto);
+        grid-auto-flow: dense;
+        justify-items: stretch;
+        align-items: stretch;
+        /*grid-template-rows: repeat(3, auto);*/
+    }
+    /*boro*/
+
+    @media screen and (min-width: 1023px) {
+        .inc-mx4{
+            margin-left:2vw;
+            margin-right:2vw;
+        }
+      }
+      
+    @media screen and (max-width: 1200px) {
+        
+      }
+
+</style>
+{% endblock %}
+
+{% block body%}
+{% load static %}
+
+<!-- <div class="d-flex justify-content-around " style="min-height: 80vh;z-index: 999;overflow: auto;"> -->
+<div class="mt-4" style="min-height: 80vh;z-index: 999;overflow: auto;">
+    <div class="d-lg-flex justify-content-center frev">
+        <!-- Image & Crew -->
+        {% include "gameLogics/mainDashboard/left.html" %}
+        <!-- Ship -->
+        {% include "gameLogics/mainDashboard/right.html" %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    //var chargeFill = {{myGameAccount.ship_info.fuel.capacity}} - {{myGameAccount.ship_info.fuel.filled}}
+    //var refill = document.getElementById("refill")
+    //refill.addEventListener('click',function(){
+        //refill.innerHTML = 
+    //})
+</script>
+{% endblock %}

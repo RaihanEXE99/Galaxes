@@ -1,0 +1,126 @@
+{% extends 'account/baseWithoutMove.html' %}
+{% block style %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .nbdr{
+        border-radius: 0px;
+    }
+    .bsw-2{
+        border: 2px solid white;
+    }
+    .cheap{
+        color:greenyellow
+    }
+    .mid{
+        color:floralwhite
+    }
+    .exp{
+        color:tomato;
+    }
+    
+    .boxButton{
+        padding: .8rem;
+        color: white;
+        background: #000000;
+        border: 4px solid #FFFFFF;
+        border-radius: 9px;
+      }
+      .boxButton:hover{
+        border: 5px solid tomato;
+        color: tomato;
+      }
+      .modelBTN{
+          background-color: transparent;
+          border: 4px solid white;
+          color:white;
+          width: 40vw;
+      }
+      .modelBTN:hover{
+        border: 6px solid tomato;
+        background-color: tomato;
+      }
+
+    .cbg {
+        background-color: rgb(255,255,255);
+        animation-name: colorchange;
+        animation-duration: .6s;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+    }
+        @keyframes colorchange{
+            0%{background-color: black}
+            50%{background-color: rgb(40, 37, 0);}
+            100%{background-color: black;}
+    }
+</style>
+{% endblock %}
+
+{% block body%}
+{% load static %}
+{% load humanize %}
+
+<div  style="min-height: 80vh;z-index: 999;overflow: auto;">
+    <div class="d-flex justify-content-center px-4 pt-4 ">
+        <div class="w-100">
+            <button type="button" class="btn btn-dark w-100">
+                <span class="h2">
+                    Lender 
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <div class=" d-flex justify-content-center align-items-stretch px-4">
+        <!-- <div class="w-25"> -->
+            <button class="btn btn-primary nbdr w-100">
+                Cash : ${{cred}}
+            </button>
+        <!-- </div> -->
+    </div>
+
+    {% if not isNloan %}
+    <div class="d-flex justify-content-center px-4 pt-4 ">
+        <div class="w-100  p-3 cbg" style="border: 2px solid yellow;">
+            <h3 class="fs-3 text-center">
+                This is how much we can offer you today: {{loanOffer|intcomma}} at {{interest}}% interest per Month! [Repayment {{repayment|intcomma}}]
+            </h3>
+            <form action="{% url 'gameLogics:takingLoan' %}" method="POST" class="d-flex justify-content-center">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-warning ">
+                    Take Loan 
+                </button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="py-4">
+        <table class="table table-striped table-dark">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">Loan Type</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Monthly Interest</th>
+                <th scope="col">Repayment</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+                {% include "gameLogics/lender/tbody.html" %}
+            </tbody>
+        </table>
+        <div style="text-decoration: none;" class="d-flex justify-content-end">
+            <a href="/" style="text-decoration: none;" class="d-flex justify-content-end">
+                <button class="btn btn-danger nbdr btn-lg">👈Back To Main Menu</button>
+            </a>   
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+</script>
+{% endblock %}

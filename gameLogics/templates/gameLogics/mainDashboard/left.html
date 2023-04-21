@@ -1,0 +1,55 @@
+{% load static %}
+<div class="d-none d-lg-block">
+    <div class="d-flex justify-content-center align-items-center ">
+        <div class="w-100">
+            <div class="d-none d-sm-block d-md-block d-lg-block d-flex justify-content-center" style="margin-top: 20px;">
+                <img style="z-index: -99;width: 30vw; border: 5px whitesmoke solid;" src="/static/gameLogics/images/{{location.name}}.png"/>
+            </div>
+            <div class="w-100 d-flex justify-content-end">
+                <div>
+                    <h4 class="bg-dark" style="padding: 12px; margin-top: 20px;margin-bottom: 20px;">Location || {{location.name}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="border: 5px solid orange;width: 100%;">
+        <div style="width: 100%;">
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-warning nbdr w-25">
+                    Name
+                </button>
+                <button class="btn btn-warning nbdr w-25">
+                    Health
+                </button>
+                <!-- <button class="btn btn-warning nbdr w-25">
+                    Hunger
+                </button> -->
+                <button class="btn btn-warning nbdr w-25">
+                    Resolve
+                </button>
+                <button class="btn btn-warning nbdr w-25">
+                    Stress
+                </button>
+            </div>
+            {% for crew in crews %}
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-dark nbdr w-25">
+                    {{crew.name}}
+                </button>
+                <button class="btn btn-dark nbdr w-25">
+                    {{crew.health}}
+                </button>
+                <!-- <button class="btn btn-dark nbdr w-25">
+                    {{crew.hunger}}
+                </button> -->
+                <button class="btn btn-dark nbdr w-25">
+                    {{crew.resolve}}
+                </button>
+                <button class="btn btn-dark nbdr w-25">
+                    {{crew.stress}}
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

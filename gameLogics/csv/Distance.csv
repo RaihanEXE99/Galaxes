@@ -1,0 +1,110 @@
+Earth,Earth Moon,382000
+Earth,Mars,220000000
+Earth,Titan,1666681075
+Earth,Callisto,627000000
+Earth,Triton,1278000000
+Earth,Phobos,250000000
+Earth,Deimos,78000000
+Earth,Europa,628000000
+Earth,Ganymede,627000000
+Earth,Enceladus,1279000000
+Earth,Io,700000000
+Earth Moon,Mars,219618000
+Earth Moon,Titan,1666299075
+Earth Moon,Callisto,626618000
+Earth Moon,Triton,1277618000
+Earth Moon,Phobos,249618000
+Earth Moon,Deimos,77618000
+Earth Moon,Europa,627618000
+Earth Moon,Ganymede,626618000
+Earth Moon,Enceladus,1278618000
+Earth Moon,Io,699618000
+Mars,Titan,1446681075
+Mars,Callisto,407000000
+Mars,Triton,1058000000
+Mars,Phobos,30000000
+Mars,Deimos,142000000
+Mars,Europa,408000000
+Mars,Ganymede,407000000
+Mars,Enceladus,1059000000
+Mars,Io,480000000
+Titan,Mars,1446681075
+Titan,Callisto,1039681075
+Titan,Triton,388681075
+Titan,Phobos,1416681075
+Titan,Deimos,1588681075
+Titan,Europa,1038681075
+Titan,Ganymede,1039681075
+Titan,Enceladus,387681075
+Titan,Io,966681075
+Callisto,Mars,407000000
+Callisto,Titan,1039681075
+Callisto,Triton,651000000
+Callisto,Phobos,377000000
+Callisto,Deimos,549000000
+Callisto,Europa,1000000
+Callisto,Enceladus,652000000
+Callisto,Io,73000000
+Triton,Mars,1058000000
+Triton,Titan,388681075
+Triton,Callisto,651000000
+Triton,Phobos,1028000000
+Triton,Deimos,1200000000
+Triton,Europa,650000000
+Triton,Ganymede,651000000
+Triton,Enceladus,1000000
+Triton,Io,578000000
+Phobos,Mars,30000000
+Phobos,Titan,1416681075
+Phobos,Callisto,377000000
+Phobos,Triton,1028000000
+Phobos,Deimos,172000000
+Phobos,Europa,378000000
+Phobos,Ganymede,377000000
+Phobos,Enceladus,1029000000
+Phobos,Io,450000000
+Deimos,Mars,142000000
+Deimos,Titan,1588681075
+Deimos,Callisto,549000000
+Deimos,Triton,1200000000
+Deimos,Phobos,172000000
+Deimos,Europa,550000000
+Deimos,Ganymede,549000000
+Deimos,Enceladus,1201000000
+Deimos,Io,622000000
+Europa,Mars,408000000
+Europa,Titan,1038681075
+Europa,Callisto,1000000
+Europa,Triton,650000000
+Europa,Phobos,378000000
+Europa,Deimos,550000000
+Europa,Ganymede,1000000
+Europa,Enceladus,651000000
+Europa,Io,72000000
+Ganymede,Mars,407000000
+Ganymede,Titan,1039681075
+Ganymede,Triton,651000000
+Ganymede,Phobos,377000000
+Ganymede,Deimos,549000000
+Ganymede,Europa,1000000
+Ganymede,Enceladus,652000000
+Ganymede,Io,73000000
+Enceladus,Mars,1059000000
+Enceladus,Titan,387681075
+Enceladus,Callisto,652000000
+Enceladus,Triton,1000000
+Enceladus,Phobos,1029000000
+Enceladus,Deimos,1201000000
+Enceladus,Europa,651000000
+Enceladus,Ganymede,652000000
+Enceladus,Io,579000000
+Io,Mars,480000000
+Io,Titan,966681075
+Io,Callisto,73000000
+Io,Triton,578000000
+Io,Phobos,450000000
+Io,Deimos,622000000
+Io,Europa,72000000
+Io,Ganymede,73000000
+Io,Enceladus,579000000
+Callisto,Ganymede,1

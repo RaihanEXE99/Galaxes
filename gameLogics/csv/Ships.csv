@@ -1,0 +1,106 @@
+Witch,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,1
+Unicorn,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,4
+Gould,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,5
+Lamerton,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,5
+Wye,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,4
+Wear,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,3
+Urania,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,3
+Popham,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,3
+Drury,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,4
+Africaine,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,5
+Antares,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,6
+Blanche,Large,Freighter,"$150,000,000.00",7,"10,000.00",16,3,5,Nav Computer,,,,,2
+Cheviot,Large,Freighter,"$225,000,000.00",7,"10,000.00",16,3,5,Nav Computer,Private Quarters,,,,1
+Cholmondeley,Large,Freighter,"$225,000,000.00",7,"10,000.00",16,3,5,Nav Computer,Private Quarters,,,,4
+Imperial,Large,Freighter,"$225,000,000.00",7,"10,000.00",16,3,5,Nav Computer,Private Quarters,,,,5
+Parapet,Large,Freighter,"$225,000,000.00",7,"10,000.00",16,3,5,Nav Computer,Private Quarters,,,,5
+Allegiance,Large,Freighter,"$300,000,000.00",7,"10,000.00",16,3,5,Nav Computer,Private Quarters,Sensor Array,,,4
+Alberni,Large,Freighter,"$300,000,000.00",7,"10,000.00",16,3,5,Nav Computer,Private Quarters,Sensor Array,,,3
+Longbow,Large,Freighter,"$300,000,000.00",7,"10,000.00",16,3,5,Nav Computer,Private Quarters,Sensor Array,,,3
+Cameronia,Large,Freighter,"$300,000,000.00",7,"10,000.00",16,3,5,Nav Computer,Private Quarters,Sensor Array,,,3
+Croziers,Large,Passenger,"$150,000,000.00",7,"5,000.00",16,20,5,Nav Computer,,,,,4
+Briar,Large,Passenger,"$150,000,000.00",7,"5,000.00",16,20,5,Nav Computer,,,,,5
+Seven Sisters,Large,Passenger,"$150,000,000.00",7,"5,000.00",16,20,5,Nav Computer,,,,,6
+Mortar,Large,Passenger,"$150,000,000.00",7,"5,000.00",16,20,5,Nav Computer,,,,,2
+Nicodemus,Large,Passenger,"$150,000,000.00",7,"5,000.00",16,20,5,Nav Computer,,,,,1
+Lanton,Large,Passenger,"$150,000,000.00",7,"5,000.00",16,20,5,Nav Computer,,,,,4
+Blossom,Large,Passenger,"$150,000,000.00",7,"5,000.00",16,20,5,Nav Computer,,,,,5
+Leverton,Large,Passenger,"$150,000,000.00",7,"5,000.00",16,20,5,Nav Computer,,,,,5
+Ghurka,Large,Passenger,"$150,000,000.00",7,"5,000.00",16,20,5,Nav Computer,,,,,4
+Tantalus,Large,Passenger,"$225,000,000.00",7,"5,000.00",16,20,5,Nav Computer,Private Quarters,,,,3
+Speedwell,Large,Passenger,"$225,000,000.00",7,"5,000.00",16,20,5,Nav Computer,Private Quarters,,,,3
+Quantock,Large,Passenger,"$225,000,000.00",7,"5,000.00",16,20,5,Nav Computer,Private Quarters,,,,3
+Eyebright,Large,Passenger,"$300,000,000.00",7,"5,000.00",16,20,5,Nav Computer,Private Quarters,Sensor Array,,,4
+Heroine,Large,Passenger,"$300,000,000.00",7,"5,000.00",16,20,5,Nav Computer,Private Quarters,Sensor Array,,,5
+Morris,Large,Passenger,"$300,000,000.00",7,"5,000.00",16,20,5,Nav Computer,Private Quarters,Sensor Array,,,6
+Nesbitt,Large,Passenger,"$300,000,000.00",7,"5,000.00",16,20,5,Nav Computer,Private Quarters,Sensor Array,,,2
+Java,Medium,Freighter,"$50,000,000.00",5,"5,000.00",8,3,3,,,,,,1
+Bacchus,Medium,Freighter,"$50,000,000.00",5,"5,000.00",8,3,3,,,,,,4
+Sutherland,Medium,Freighter,"$50,000,000.00",5,"5,000.00",8,3,3,,,,,,5
+Tornado,Medium,Freighter,"$80,000,000.00",5,"5,000.00",8,3,3,Nav Computer,,,,,5
+Pyl,Medium,Freighter,"$80,000,000.00",5,"5,000.00",8,3,3,Nav Computer,,,,,4
+Jackdaw,Medium,Freighter,"$80,000,000.00",5,"5,000.00",8,3,3,Nav Computer,,,,,3
+Whippingham,Medium,Passenger,"$50,000,000.00",5,"1,000.00",8,10,3,,,,,,3
+Scourge,Medium,Passenger,"$50,000,000.00",5,"1,000.00",8,10,3,,,,,,3
+Longbow,Medium,Passenger,"$50,000,000.00",5,"1,000.00",8,10,3,,,,,,4
+Swiftsure,Medium,Passenger,"$80,000,000.00",5,"1,000.00",8,10,3,Nav Computer,,,,,5
+Rattle,Medium,Passenger,"$80,000,000.00",5,"1,000.00",8,10,3,Nav Computer,,,,,6
+Moro,Medium,Passenger,"$80,000,000.00",5,"1,000.00",8,10,3,Nav Computer,,,,,2
+Mohawk,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,1
+Oshawa,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,4
+Carolina,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,5
+Vimy,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,5
+Endurance,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,4
+Moorhen,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,3
+Eleanor,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,3
+Madras,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,3
+Kiawo,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,4
+Fulmar,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,5
+Kashmir,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,6
+Alberni,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,2
+Tortoise,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,1
+Lightfoot,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,4
+Pasley,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,5
+Buttercup,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,5
+Ockham,Small,Freighter,"$25,000,000.00",3,"1,500.00",6,0,2,,,,,,4
+Mentor,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,3
+Limbourne,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,3
+Cattistock,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,3
+Kilmorey,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,4
+Stirling Castle,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,5
+Leven,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,6
+Pointe Claire,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,2
+Lothian,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,1
+Loyal,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,4
+Felicity,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,5
+Collingwood,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,5
+Dromio,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,4
+Woodruff,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,3
+Southampton,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,3
+Calabash,Small,Freighter,"$50,000,000.00",3,"1,500.00",6,0,2,Nav Computer,,,,,3
+Belisarius,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,4
+Fawn,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,5
+Catherine,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,6
+Duquesne,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,2
+Herbrus,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,1
+Listowel,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,4
+Comeet,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,5
+Polar Circle,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,5
+Quality,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,4
+Roebuck,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,3
+Talbot,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,3
+Firefly,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,3
+Bacchus,Small,Passenger,"$25,000,000.00",3,500.00,6,5,2,,,,,,4
+Samarang,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,5
+Castle,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,6
+Cheerful,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,2
+Citadel,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,3
+Comet,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,3
+Confounder,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,3
+Opal,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,3
+Spear,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,4
+Sea Nymph,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,5
+Chelmsford,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,6
+Grafton,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,2
+Kemerton,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,1
+Doon,Small,Passenger,"$50,000,000.00",3,500.00,6,5,2,Nav Computer,,,,,1

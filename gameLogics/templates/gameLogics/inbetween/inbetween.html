@@ -1,0 +1,82 @@
+{% extends 'account/base.html' %}
+{% block style %}
+<style>
+    .boxButton{
+        padding: .8rem;
+        color: white;
+        background: #000000;
+        border: 4px solid #FFFFFF;
+        border-radius: 9px;
+      }
+      .boxButton:hover{
+        border: 5px solid tomato;
+        color: tomato;
+      }
+      .modelBTN{
+          background-color: transparent;
+          border: 4px solid white;
+          color:white;
+          width: 65vw;
+      }
+      .modelBTN:hover{
+        border: 6px solid tomato;
+        background-color: tomato;
+      }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block body%}
+{% load static %}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;z-index: 999;overflow: auto;">
+    <div class="w-75">
+        
+        {% if not alerts %}
+
+        {% else %}
+            <h1 class="text-danger">Alerts</h1>
+                {% for alert in alerts %}
+                    <h3 class="fs-3 text-warning">{{alert.title}}</h4>
+                    <span class="fs-5">
+                        {{alert.details}}
+                    </span> 
+                {% endfor %}
+        {% endif %}
+
+        {% if not allevents %}
+
+        {% else %}
+            <h1 class="text-danger">Random Event</h1>
+            {% for e in allevents %}
+                <h3 class="fs-3 text-success">::Week {{e.week}}::</h3>
+                    {% if e.reC == 0%}
+                        <h3 class="fs-4 text-warning">Zero Events</h3>
+                    {% else %}
+                        {% for z in e.events %}
+                            <h3 class="fs-4 text-warning">{{forloop.counter}}/ {{z.type}}</h3>
+                            <h4 class="fs-5">({{z.subtype}})</h4>
+                            <span class="fs-5">
+                                {{z.effect}}
+                            </span> 
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+        {% endif %}
+
+        
+        <div class="d-flex justify-content-center">
+            <a href="/" style="text-decoration: none;" class="d-flex justify-content-center p-4">
+                <button class="btn btn-primary btn-lg mt-4">Next</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+
+</script>
+{% endblock %}

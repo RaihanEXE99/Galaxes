@@ -1,0 +1,33 @@
+{% load humanize %}
+{% if isNloan %}
+<tr class="text-center">
+    <td scope="row">N.Loan</td>
+    <td>${{isNloan.amount|intcomma}}</td>
+    <td>{{isNloan.interest}}%</td>
+    <td>${{isNloan.repayment|intcomma}}</td>
+    <td >
+        <form action="{% url 'gameLogics:repaymentNloan' %}" method="POST" class="d-flex justify-content-around align-items-stretch">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-primary" style="width: 95%;" data-bs-toggle="modal" data-bs-target="#exampleModal-buy-{{com.id}}">
+                Repayment 
+            </button>
+        </form>
+    </td>
+</tr>
+{% endif %}
+{% if isSloan %}
+<tr class="text-center">
+    <td scope="row">Ship Loan</td>
+    <td>${{isSloan.amount|intcomma}}</td>
+    <td>{{isSloan.interest}}%</td>
+    <td>${{isSloan.repayment|intcomma}}</td>
+    <td >
+        <form action="{% url 'gameLogics:shipRepaymentSloan' %}" method="POST" class="d-flex justify-content-around align-items-stretch">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-primary" style="width: 95%;" data-bs-toggle="modal" data-bs-target="#exampleModal-buy-{{com.id}}">
+                Repayment 
+            </button>
+        </form>
+    </td>
+</tr>
+{% endif %}

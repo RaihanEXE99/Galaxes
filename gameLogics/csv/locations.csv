@@ -1,0 +1,12 @@
+1,Earth,18,250000,10,Buy/Sell,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+3,Mars,35,500000,18,Buy/Sell,Yes,Yes,Yes,Yes,Yes,Yes,Yes,
+7,Titan,18,75000,20,Buy/Sell,No,No,Yes,No,Yes,No,No,
+11,Callisto,5,25000,30,Buy/Sell,No,Yes,Yes,Yes,Yes,No,No,
+12,Triton,5,0,100,Buy/Sell,Yes,No,Yes,Yes,Yes,No,No,
+2,Earth Moon,10,250000,0,Buy/Sell,Yes,Yes,Yes,Yes,No,No,No,
+4,Phobos,35,500000,0,Buy/Sell,Yes,Yes,Yes,Yes,No,Yes,No,
+5,Deimos,35,50000,0,Buy/Sell,Yes,Yes,Yes,No,No,Yes,No,
+6,Europa,15,100000,0,Buy/Sell,No,No,Yes,No,No,No,No,
+8,Ganymede,10,200000,0,Buy/Sell,Yes,No,Yes,No,No,Yes,No,Yes
+9,Enceladus,5,50000,0,Buy/Sell,No,Yes,Yes,No,No,Yes,No,
+10,Io,5,50000,0,Buy/Sell,No,No,Yes,Yes,No,No,No,

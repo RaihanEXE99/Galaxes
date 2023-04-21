@@ -1,0 +1,23 @@
+{% load humanize %}
+{% for c in rc %}
+    <tr class="text-center">
+        <td scope="row">{{c.name}}</td>
+        <td>{% if c.profession == "Fugitive" %}
+            Chef
+            {% else %}
+            {{c.profession}}
+            {% endif %}
+        </td>
+        <td>${{c.weeklySalary|intcomma}}</td>
+        <td>${{ c.sbonus|intcomma }}</td>
+        <td >
+            <form action="{% url 'gameLogics:hiringCrew' %}" method="POST" class="d-flex justify-content-around align-items-stretch">
+                {% csrf_token %}
+                <input hidden name="crew_id" value="{{c.id}}" />
+                <button type="submit" class="btn btn-outline-primary" style="width: 95%;" data-bs-toggle="modal" data-bs-target="#exampleModal-buy-{{com.id}}">
+                    Hire
+                </button>
+            </form>
+        </td>
+    </tr>
+{% endfor %}

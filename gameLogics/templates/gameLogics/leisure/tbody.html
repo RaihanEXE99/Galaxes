@@ -1,0 +1,17 @@
+{% load humanize %}
+{% for c in plist %}
+    <tr class="text-center">
+        <td scope="row">{{c.weeks}} Week</td>
+        <td>{{c.sr}} %</td>
+        <td>${{c.price|intcomma}}</td>
+        <td >
+            <form action="{% url 'gameLogics:payLeisure' %}" method="POST" class="d-flex justify-content-around align-items-stretch">
+                {% csrf_token %}
+                <input hidden name="weeks" value="{{c.weeks}}" />
+                <button type="submit" class="btn btn-outline-primary" style="width: 95%;" data-bs-toggle="modal" data-bs-target="#exampleModal-buy-{{com.id}}">
+                    Pay
+                </button>
+            </form>
+        </td>
+    </tr>
+{% endfor %}

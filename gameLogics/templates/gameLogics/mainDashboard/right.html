@@ -1,0 +1,337 @@
+{% load static %}
+<div class="inc-mx4 d-flex justify-content-center" style="background-color: transparent;width: 100%; ">
+    <div class="w-100">
+        <div class="d-flex justify-content-end align-items-center mb-2">
+            <!-- <a href='https://ko-fi.com/F1F84S1KR' target='_blank'><img class="mx-3" height='36' style='border:0px;height:36px;' src="{% static 'account/images/kofi.png' %}" border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> -->
+            <a href="/account/logout_view" class="btn btn-lg  btn-danger d-block mx-2 border border-warning">
+                <span class=" mx-1">Logout</span>
+            </a>
+            <button class="btn btn-lg  btn-dark d-block d-lg-none d-xl-none mx-2 border border-warning">
+                <span class=" mx-1 text-warning">{{location.name}}</span>
+            </button>
+            <!-- <a href="{% url 'account:logout_view' %}"  style="text-decoration: none;">
+                <button class="btn btn-lg  btn-danger">Logout</button>
+            </a> -->
+        </div>
+        
+        <div class="d-flex justify-content-center align-items-center" style="width: 100%;">
+            <div class="w-100" style="border: 5px solid orangered; background:orangered">
+                <div class="w-100">
+                    <div class=" p-2" style="background-color: orangered;">
+                        <!-- Ship Stat -->
+                        <!-- <div class="d-flex justify-content-between align-items-center">
+                           
+                            <h3 class="fs-3 btn btn-sm " style="background:orangered">
+                                <span >{{request.user.username}} - Rank {{myrank}}</span> ||
+                                <span > {{ship_info.title}} of the {{myGameAccount.ship_info.ship.name}} -  {{ship_info.week_s}} weeks </span>
+                            </h3>
+                        </div> -->
+                        <div class="d-flex justify-content-center align-items-center">
+                            <h3 class="fs-3 btn btn-sm  text-center" >
+                                <a href="{% url 'gameLogics:allRanks' %}" class="btn btn-warning fs-3"> Rank {{myrank}} - {{request.user.username}}</a> || <span class=" fs-3">  {{ship_info.week_s}} Weeks</span>
+                                <br> <span class=" fs-3" >{{ship_info.title}} of the {{myGameAccount.ship_info.ship.name}}</span>
+                            </h3>
+                        </div>
+            
+                        <div class="d-flex justify-content-center align-items-center align-items-stretch w-100">
+                            <div style="width: 50%;">
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-dark btn-lg nbdr w-100">
+                                        <h3 class="fs-3">
+                                            {{myGameAccount.ship_info.fuel.filled}}/{{myGameAccount.ship_info.fuel.capacity}} 
+                                        </h3>
+                                        <h3 class="fs-3 text-secondary">
+                                            🔋Charge 
+                                        </h3>
+                                    </button>
+                                </div>
+                            </div>
+                            <div style="width: 50%;">
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-dark btn-lg nbdr w-100" style="background-color:rgb(26, 26, 26)">
+                                        <h3 class="fs-3">
+                                            {{myGameAccount.ship_info.ship_condition}}%
+                                        </h3>
+                                        <h3 class="fs-3 text-secondary">
+                                            🚀Condition 
+                                        </h3>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center align-items-stretch w-100">
+                            <div style="width: 50%;">
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-dark btn-lg nbdr w-100 " style="background-color:rgb(26, 26, 26)">
+                                        <h3 class="fs-3">
+                                            {{myGameAccount.cargo_per}}% 
+                                        </h3>
+                                        <h3 class="fs-3 text-secondary">
+                                            📦Cargo
+                                        </h3>
+                                    </button>
+                                </div>
+                            </div>
+                            <div style="width: 50%;">
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-dark btn-lg nbdr w-100">
+                                        <h3 class="fs-3">
+                                            ${{cred}} 
+                                        </h3>
+                                        <h3 class="fs-3 text-secondary">
+                                            💵Credit
+                                        </h3>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- CREW MATES -->
+                    <div >
+                        <button class="w-100 btn nbdr btn-lg bg-primary d-block d-lg-none d-xl-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <h3>
+                             Crew : {{crewsIHave}}/{{crewsCAP}} - Stress : {{stress}}%
+                            </h3>
+                        </button>
+                    </div>
+                    <!--  -->
+                    <!-- Modal -->
+                    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog bg-dark">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Crew Members</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div style="border: 5px solid orange;width: 100%;">
+                                    <div style="width: 100%;">
+                                        <div class="d-flex justify-content-center">
+                                            <button class="btn btn-warning nbdr w-25">
+                                                Name
+                                            </button>
+                                            <button class="btn btn-warning nbdr w-25">
+                                                Health
+                                            </button>
+                                            <!-- <button class="btn btn-warning nbdr w-25">
+                                                Hunger
+                                            </button> -->
+                                            <button class="btn btn-warning nbdr w-25">
+                                                Resolve
+                                            </button>
+                                            <button class="btn btn-warning nbdr w-25">
+                                                Stress
+                                            </button>
+                                        </div>
+                                        {% for crew in crews %}
+                                        <div class="d-flex justify-content-center">
+                                            <button class="btn btn-dark nbdr w-25">
+                                                {{crew.name}}
+                                            </button>
+                                            <button class="btn btn-dark nbdr w-25">
+                                                {{crew.health}}
+                                            </button>
+                                            <!-- <button class="btn btn-dark nbdr w-25">
+                                                {{crew.hunger}}
+                                            </button> -->
+                                            <button class="btn btn-dark nbdr w-25">
+                                                {{crew.resolve}}
+                                            </button>
+                                            <button class="btn btn-dark nbdr w-25">
+                                                {{crew.stress}}
+                                            </button>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <!--  -->
+                    <form class="" action="{% url 'gameLogics:payTax' %}" method="post">
+                        {% csrf_token %}
+                        <button class="w-100 btn nbdr btn-lg " style="background-color: darkviolet;">
+                            <h3>
+                                TAXES DUE : ${{tax}}
+                            </h3>
+                        </button>
+                    </form>
+                
+                    <form class="" action="{% url 'gameLogics:payWages' %}" method="post">
+                        {% csrf_token %}
+                        <button  class="w-100 btn nbdr btn-lg" style="background-color: crimson;" >
+                            <h3>
+                                WAGES DUE : ${{cwage}}
+                            </h3>
+                        </button>
+                    </form>
+                    <!-- </div> -->
+                    <div class="fgrid bg-dark">
+
+                        <div>
+                            <a href="{% url 'gameLogics:marketplace' %}" class="w-100 btn nbdr btn-success btn-lg p-1">
+                                <h3>
+                                    MarketPlace
+                                </h3>
+                            </a>
+                        </div>
+                        <!-- EOF MarketPlace -->
+    
+                        {% if location.ship_dealer == "Yes" %}
+                        <!-- Repair Bay -->
+                        <a href="{% url 'gameLogics:shipBay' %}">
+                            <button class="w-100 btn nbdr btn-primary btn-lg p-1">
+                                <h3>
+                                    Ship dealer
+                                </h3>
+                            </button>
+                        </a>
+                        <!-- EOF Repair Bay -->
+                        {% elif location.repair_bay == "Yes" %}
+                        <!-- Ship Dealer -->
+                        <a href="{% url 'gameLogics:repair' %}">
+                            <button class="w-100 btn btn-warning nbdr btn-lg p-1">
+                                <h3>
+                                    Mechanic
+                                </h3>
+                            </button>
+                        </a>
+                        <!-- EOF Ship dealer -->
+    
+                        {% endif %}
+    
+                        {% if location.med_bay == "Yes" %}
+                        <!-- Repair Bay -->
+                        <!-- <div>
+                            <button class="w-100 btn nbdr btn-primary btn-lg p-1">
+                                <h3>
+                                    Clinic
+                                </h3>
+                            </button>
+                        </div> -->
+                        <!-- EOF Repair Bay -->
+                        {% endif %}
+                        
+                        {% if location.pasengers_crew == "Yes" %}
+                        <!-- Port Authority -->
+                        <a href="{% url 'gameLogics:terminal' %}">
+                            <button class="w-100 btn btn-info nbdr btn-lg p-1">
+                                <h3>
+                                    Terminal
+                                </h3>
+                            </button>
+                        </a>
+                        <!-- EOF Port Authority -->
+                        {% endif %}
+    
+                        {% if location.missions_reqs == "Yes" %}
+                        <!-- Port Authority -->
+                        <!-- <div>
+                            <button class="w-100 btn btn-info nbdr btn-lg p-1">
+                                <h3>
+                                    Classifieds
+                                </h3>
+                            </button>
+                        </div> -->
+                        <!-- EOF Port Authority -->
+                        {% endif %}
+                        
+            
+                        <!-- Ship Bay -->
+                        <!-- <div>
+                            <button class="w-100 btn btn-danger nbdr btn-lg p-1">
+                                <h1>
+                                    Ship Bay
+                                </h1>
+                            </button>
+                        </div> -->
+                        <!-- EOF Ship Bay -->
+                        
+                        {% if location.lender == "Yes" %}
+                        <!-- Lender -->
+                        <a href="{% url 'gameLogics:loanMenu' %}">
+                            <button class="w-100 btn nbdr btn-primary btn-lg p-1">
+                                <h3>
+                                    Lender
+                                </h3>
+                            </button>
+                        </a>
+                        <!-- EOF Lender -->
+                        {% endif %}
+                        
+    
+    
+                        {% if location.leisure == "Yes" %}
+                        <a href="{% url 'gameLogics:leisure' %}">
+                            <button class="w-100 btn nbdr btn-success btn-lg p-1">
+                                <h3>
+                                    Leisure
+                                </h3>
+                            </button>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'gameLogics:RandR' %}">
+                            <button class="w-100 btn nbdr btn-success btn-lg p-1">
+                                <h3>
+                                    R&R (${{RR_FEE}})
+                                </h3>
+                            </button>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+        
+
+                
+                <div class="p-2" style="background-color: rebeccapurple;">
+                    <div class="d-flex aligh-items-center justify-content-between">
+                        <h1>Ready to Depart </h1>
+                        <!-- <a href="{% url 'gameLogics:RandR' %}" class="d-flex aligh-items-center" style="text-decoration: none;">
+                            <button class="btn fs-3 btn-success text-white">💖Crew R&R ({{RR_FEE}}$)</button>
+                        </a> -->
+                    </div>
+                    <div class="d-flex justify-content-center align-items-start">
+                        <div class="d-flex justify-content-center w-100">
+                            <a href="{% url 'gameLogics:refillCharge' %}" class="btn btn-danger w-50 m-1 d-flex align-items-center" >
+                                <div class="w-100">
+                                    <h1 class="text-center fs-2">Recharge Ship⚡</h1>
+                                    <h3 class="text-center text-white fs-3">Full Charge ({{fullChargeC}}): <span id="refill">${{fullCharge}}</span></h3>
+                                    <h3 class="text-center text-white fs-3">MAX ({{possibleChargeC}}): <span id="refill">${{costCharge}}</span></h3>
+                                </div>
+                            </a>
+                            <button class="btn nbdr btn-primary w-50 m-1 py-1">
+                                
+                                <div class="w-100">
+                                    <!-- <a href="{% url 'gameLogics:RandR' %}" > -->
+                                        <h1 class=" fs-4 text-center w-100 disabled">Go To Next Location</h1>
+                                    <!-- </a> -->
+                                </div>
+                                
+                                <div class="w-100">
+                                    <!-- <h1 class="text-center bg-danger fs-2">Next Location (<span class="text-center text-warning fs-4">{{disC}}<span class="fs-6">⚡</span></span>)</h1>
+                                    <h3 class="text-center text-warning fs-2">
+                                        {{nextLocation}} {{docking_fee}}$
+                                    </h3> -->
+                                    <a href="{% url 'gameLogics:locations' %}">
+                                        <h1 class="btn btn-warning fs-4 text-center w-100">Travel🚀</h1>
+                                    </a>
+                                </div>
+                                
+                            </button>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

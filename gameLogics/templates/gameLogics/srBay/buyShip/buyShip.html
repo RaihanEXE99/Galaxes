@@ -1,0 +1,101 @@
+{% extends 'account/baseWithoutMove.html' %}
+{% block style %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .nbdr{
+        border-radius: 0px;
+    }
+    .bsw-2{
+        border: 2px solid white;
+    }
+    .cheap{
+        color:greenyellow
+    }
+    .mid{
+        color:floralwhite
+    }
+    .exp{
+        color:tomato;
+    }
+    
+    .boxButton{
+        padding: .8rem;
+        color: white;
+        background: #000000;
+        border: 4px solid #FFFFFF;
+        border-radius: 9px;
+      }
+      .boxButton:hover{
+        border: 5px solid tomato;
+        color: tomato;
+      }
+      .modelBTN{
+          background-color: transparent;
+          border: 4px solid white;
+          color:white;
+          width: 40vw;
+      }
+      .modelBTN:hover{
+        border: 6px solid tomato;
+        background-color: tomato;
+      }
+</style>
+{% endblock %}
+
+{% block body%}
+{% load static %}
+
+<div  style="min-height: 80vh;z-index: 999;overflow: auto;">
+    <div class="d-flex justify-content-center px-4 pt-4 ">
+        <div class="d-flex w-100">
+            <button type="button" class="btn nbdr btn-dark w-100">
+                <span class="h2">
+                    Buy Ship 
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <div class=" d-flex justify-content-center align-items-stretch px-4">
+        <!-- <div class="w-50">
+            <button class="btn btn-success nbdr w-100">
+                
+            </button>
+        </div> -->
+        <button class="btn btn-primary nbdr w-100">
+            Cash : ${{cred}}
+        </button>
+    </div>
+
+
+    <div class="py-4">
+        <table class="table table-striped table-dark">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">Name</th>
+                <th scope="col">Size</th>
+                <th scope="col">Type</th>
+                <th scope="col">Crew</th>
+                <th scope="col">Price</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+                {% include "gameLogics/srBay/buyShip/tbody.html" %}
+            </tbody>
+        </table>
+        <div style="text-decoration: none;" class="d-flex justify-content-end">
+            <a href="/" style="text-decoration: none;" class="d-flex justify-content-end">
+                <button class="btn btn-danger nbdr btn-lg">👈Back To Main Menu</button>
+            </a>   
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+</script>
+{% endblock %}

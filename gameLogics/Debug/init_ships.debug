@@ -1,0 +1,16 @@
+# print(
+# "name" , row[0],"\n",
+# "size" , row[1],"\n",
+# "type" , row[2],"\n",
+# "value" , modValue(row[3]),"\n",
+# "crew" , int(row[4]),"\n",
+# "cargo" , modValue(row[5]),"\n",
+# "fuel" , int(row[6]),"\n",
+# "passengers" , int(row[7]),"\n",
+# "upgrade_slot" ,int(row[8]),"\n",
+# "upgrade1" , row[9],"\n",
+# "upgrade2" , row[10],"\n",
+# "upgrade3" , row[11],"\n",
+# "upgrade4" , row[12],"\n",
+# "upgrade5" , row[13],"\n",
+# )

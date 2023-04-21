@@ -1,0 +1,86 @@
+{% extends 'account/base.html' %}
+{% block style %}
+<style>
+    .boxButton{
+        padding: .8rem;
+        color: white;
+        background: #000000;
+        border: 4px solid #FFFFFF;
+        border-radius: 9px;
+      }
+      .boxButton:hover{
+        border: 5px solid tomato;
+        color: tomato;
+      }
+      .modelBTN{
+          background-color: transparent;
+          border: 4px solid white;
+          color:white;
+          width: 40vw;
+      }
+      .modelBTN:hover{
+        border: 6px solid tomato;
+        background-color: tomato;
+      }
+</style>
+{% endblock %}
+
+{% block body%}
+{% load static %}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;z-index: 999;overflow: auto;">
+    <div>
+        <h1 class="display-2 text-center text-warning">Hi,{{ user.username }}</h1>
+        <div class="d-flex justify-content-center p-3">
+            <span class="w-75 text-center h3">
+                The following ships are looking for a new Purser to run their ship operations.
+                You will be <span class="text-danger"> responsible </span> for <span class="text-danger"> buying </span> and <span class="text-danger"> selling </span> commodities, <span class="text-danger"> paying crew wages and taxes </span>, ship repairs and <span class="text-danger"> maintenance </span>. Of course, the job comes with perks.
+            </span>
+        </div>
+        <h1 class="text-center text-primary">Choose the ship you want to join:</h1>
+        <div class="d-flex justify-content-center" style="margin-bottom: 4vh;">
+            <div>
+                {% for ship in ships %}
+                <div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn modelBTN m-2" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ship.id}}">
+                        <h3 class="display-5"> {{ship.name}}-{{ship.size}}-{{ship.type}}-{{ship.crew}}</h3>
+                        <h5></h5>
+                    </button>
+
+                    <!-- Modal -->
+                    <form action="" method="post" class="modal fade" id="exampleModal-{{ship.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: rgba(100, 0, 0, 0.4);">
+                        {% csrf_token %}
+                        <div class="modal-dialog" style="border: 8px double white;border-radius: 4px;">
+                            <div class="modal-content" style="background:black;">
+                                <div class="modal-header">
+                                    <h2 class="modal-title text-warning" id="exampleModalLabel">Ship : {{ship.name}}</h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h3>Size : {{ship.size}}</h3>
+                                    <h3>Type : {{ship.type}}</h3>
+                                    <h3>Value : {{ship.value}}$</h3>
+                                    <h3>Crew : {{ship.crew}}</h3>
+                                    <h3>Cargo : {{ship.cargo}}</h3>
+                                    <h3>Fuel : {{ship.fuel}}</h3>
+                                    <h3>Passengers : {{ship.passengers}}</h3>
+                                    <h3>Upgrade Slot : {{ship.upgrade_slot}}</h3>
+                                </div>
+                                <div class="modal-footer">
+                                    <input hidden value="{{ship.id}}" name="ship_id" />
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Pick</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

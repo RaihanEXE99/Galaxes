@@ -1,0 +1,39 @@
+{% extends 'account/base.html' %}
+{% block style %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% endblock %}
+{% block body%}
+{% load static %}
+
+<!-- <div class="d-flex justify-content-center align-items-center" style="height: 80vh;"> -->
+    <div class="container">
+        <div class="row row-cols-2 ">
+          {% for r in rlist %}
+          <div class="col d-flex justify-content-center my-4 ">
+            <form {% if r.ban %} {% else %} action="{% url 'gameLogics:clickNextLocation' %}" method="post" {% endif %}
+              class="card " style="width: 15rem; border: 0px;background:black"
+             >
+              {% csrf_token %}
+                <img src="/static/gameLogics/images/{{r.location}}.png" class="card-img-top" alt="...">
+                <div class="card-body bg-dark">
+                  <span class="fs-5" >Fees : {{r.docking_fee}}$ <br>Charge : {{r.distance}}⚡</span> <br>
+                  {% if r.ban %}
+                    <span class="text-warning"> Closed For Next {{r.ban}} Weeks </span>
+                  {% endif %}
+                </div>
+                <input hidden name="loc" value="{{r.location}}" />
+                <button class="btn {% if r.ban %}btn-danger disabled {% else %}btn-primary{% endif %} btn-lg" style="border-radius: 0px;">
+                  {% if r.ban %} Civil War at {{r.location}}{% else %}
+                    {{r.location}}
+                  {% endif %}
+                </button>
+            </form>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+<!-- </div> -->
+
+{% endblock %}

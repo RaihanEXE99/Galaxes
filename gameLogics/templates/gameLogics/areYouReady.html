@@ -1,0 +1,31 @@
+{% extends 'account/base.html' %}
+{% block style %}
+<style>
+    .boxButton{
+        padding: .8rem;
+        color: white;
+        background: #000000;
+        border: 4px solid #FFFFFF;
+        border-radius: 9px;
+      }
+      .boxButton:hover{
+        border: 5px solid tomato;
+        color: tomato;
+      }
+</style>
+{% endblock %}
+
+{% block body%}
+{% load static %}
+
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div>
+        <h1 class="display-2 text-center">Are You Ready To Start Your Journey?</h1>
+        <div class="d-flex justify-content-around align-items-center" style="margin-top: 4vh;">
+            <a style="text-decoration: none;" href="{% url 'gameLogics:createGameAccount' %}" class="boxButton h1">Yes</a>
+            <a style="text-decoration: none;" href="{% url 'account:logout_view' %}" class="boxButton h1">No</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

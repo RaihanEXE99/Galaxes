@@ -1,0 +1,96 @@
+{% extends 'account/base.html' %}
+{% block style %}
+<style>
+    .boxButton{
+        padding: .8rem;
+        color: white;
+        background: #000000;
+        border: 4px solid #FFFFFF;
+        border-radius: 9px;
+      }
+      .boxButton:hover{
+        border: 5px solid tomato;
+        color: tomato;
+      }
+      .modelBTN{
+          background-color: transparent;
+          border: 4px solid white;
+          color:white;
+          width: 65vw;
+      }
+      .modelBTN:hover{
+        border: 6px solid tomato;
+        background-color: tomato;
+      }
+</style>
+{% endblock %}
+
+{% block body%}
+{% load static %}
+{% load humanize %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;z-index: 999;overflow: auto;">
+    <div>
+        <h1 class="display-2 text-center text-warning">Hi,{{ user.username }}</h1>
+        <div class="d-flex justify-content-center p-3">
+            <span class="w-75 text-center h3">
+                The following ships are looking for a new Purser to run their ship operations.
+                You will be <span class="text-danger"> responsible </span> for <span class="text-danger"> buying </span> and <span class="text-danger"> selling </span> commodities, <span class="text-danger"> paying crew wages and taxes </span>, ship repairs and <span class="text-danger"> maintenance </span>. Of course, the job comes with perks.
+            </span>
+        </div>
+        <h1 class="text-center text-primary">Choose the ship you want to join:</h1>
+        <div class="d-flex justify-content-center" style="margin-bottom: 4vh;">
+            <div>
+                {% for ship in ships %}
+                <div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn modelBTN m-2 btngrab" id="#ship{{ship.id}}" onclick="active(this)" value="{{ship.id}}">
+                        <h1 class="h1">The {{ship.name}} - {{ship.size}} size {{ship.type}} - Crew: {{ship.crew}}</h1>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center p-3">
+            <span class="w-75 text-center text-warning fs-2">
+                OR, Finance This Ship And Be The Captain .This Ship Cost ${{small.value|intcomma}} & <br> Monthly Interest 1%
+            </span>
+        </div>
+        <form method="POST" action="{% url 'gameLogics:selectShipAsCaptain' %}" class="d-flex justify-content-center">
+            {% csrf_token %}
+            <input name="ship_idX" value="{{small.id}}" hidden />
+            <button type="submit" class="btn btn-success modelBTN m-2 btngrab">
+                <h1 class="h1">The {{small.name}} - {{small.size}} size {{small.type}} - Crew: {{small.crew}}</h1>
+            </button>
+        </form>
+
+        <form action="" class="mt-4" method="post">
+            <input id="val" name="ship_id" hidden value="" />
+            <div class="d-flex justify-content-center " style="margin-bottom: 8vh;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-warning w-25">
+                    <h1>Next</h1>
+                </button>
+            </div>
+        </form>
+
+        
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    const active = (ele) =>{
+        listOfclass = document.querySelectorAll(".btngrab")
+        console.log(listOfclass)
+        for (i = 0; i < listOfclass.length; i++) {
+            listOfclass[i].style.backgroundColor = "transparent";
+        }
+        selected = ele.style.background = "tomato";
+        document.getElementById("val").value = ele.value
+        console.log(ele.value);
+    }
+</script>
+{% endblock %}
